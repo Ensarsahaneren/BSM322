@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HesapMakinesi"
+    x:Class="HesapMakinesi.AppShell">
+    <FlyoutItem Title="Standart Hesap Makinesi" Icon="calculator.png">
+        <ShellContent Title="Standart" ContentTemplate="{DataTemplate local:StandardPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Bilimsel Hesap Makinesi" Icon="science.png">
+        <ShellContent Title="Bilimsel" ContentTemplate="{DataTemplate local:ScientificPage}" />
+    </FlyoutItem>
+
+
+</Shell>

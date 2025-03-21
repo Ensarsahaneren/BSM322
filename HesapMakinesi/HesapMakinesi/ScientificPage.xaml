@@ -1,0 +1,110 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HesapMakinesi.ScientificPage"
+             Title="Bilimsel Hesap Makinesi"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="5"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="FillAndExpand">
+
+           
+            <Label x:Name="lblHistory"
+           FontSize="20"
+           TextColor="Gray"
+           HorizontalTextAlignment="End"
+           Margin="0,10"/>
+
+            
+            <Entry x:Name="entryResult"
+           FontSize="36"
+           HeightRequest="60"
+           HorizontalTextAlignment="End"
+           VerticalTextAlignment="Center"
+           BackgroundColor="WhiteSmoke"
+           TextColor="Black"
+           Placeholder="0"
+           IsReadOnly="True"
+           Margin="0,0,0,10"/>
+
+
+            
+            <Grid RowSpacing="8" ColumnSpacing="8">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+
+                
+                <Button Text="2ⁿᵈ" Grid.Row="0" Grid.Column="0" Style="{StaticResource CalcButton}" />
+                <Button Text="π" Grid.Row="0" Grid.Column="1" Style="{StaticResource CalcButton}" Clicked="OnConstantClicked"/>
+                <Button Text="e" Grid.Row="0" Grid.Column="2" Style="{StaticResource CalcButton}" Clicked="OnConstantClicked"/>
+                <Button Text="C" Grid.Row="0" Grid.Column="3" Style="{StaticResource CalcButton}" Clicked="OnClearClicked"/>
+                <Button Text="⌫" Grid.Row="0" Grid.Column="4" Style="{StaticResource CalcButton}" Clicked="OnBackspaceClicked"/>
+
+               
+                <Button Text="x²" Grid.Row="1" Grid.Column="0" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="1/x" Grid.Row="1" Grid.Column="1" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="|x|" Grid.Row="1" Grid.Column="2" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="exp" Grid.Row="1" Grid.Column="3" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="mod" Grid.Row="1" Grid.Column="4" Style="{StaticResource OperatorButton}" Clicked="OnOperatorClicked"/>
+
+               
+                <Button Text="√x" Grid.Row="2" Grid.Column="0" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="(" Grid.Row="2" Grid.Column="1" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text=")" Grid.Row="2" Grid.Column="2" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="n!" Grid.Row="2" Grid.Column="3" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="×" Grid.Row="2" Grid.Column="4" Style="{StaticResource OperatorButton}" Clicked="OnOperatorClicked"/>
+
+                
+                <Button Text="xʸ" Grid.Row="3" Grid.Column="0" Style="{StaticResource OperatorButton}" Clicked="OnOperatorClicked"/>
+                <Button Text="7" Grid.Row="3" Grid.Column="1" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="8" Grid.Row="3" Grid.Column="2" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="9" Grid.Row="3" Grid.Column="3" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="÷" Grid.Row="3" Grid.Column="4" Style="{StaticResource OperatorButton}" Clicked="OnOperatorClicked"/>
+
+               
+                <Button Text="10ˣ" Grid.Row="4" Grid.Column="0" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="4" Grid.Row="4" Grid.Column="1" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="5" Grid.Row="4" Grid.Column="2" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="6" Grid.Row="4" Grid.Column="3" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="+" Grid.Row="4" Grid.Column="4" Style="{StaticResource OperatorButton}" Clicked="OnOperatorClicked"/>
+
+                
+                <Button Text="log" Grid.Row="5" Grid.Column="0" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="1" Grid.Row="5" Grid.Column="1" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="2" Grid.Row="5" Grid.Column="2" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="3" Grid.Row="5" Grid.Column="3" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="−" Grid.Row="5" Grid.Column="4" Style="{StaticResource OperatorButton}" Clicked="OnOperatorClicked"/>
+
+                
+                <Button Text="ln" Grid.Row="6" Grid.Column="0" Style="{StaticResource CalcButton}" Clicked="OnSpecialOperatorClicked"/>
+                <Button Text="+/-" Grid.Row="6" Grid.Column="1" Style="{StaticResource CalcButton}" Clicked="OnNegateClicked"/>
+                <Button Text="0" Grid.Row="6" Grid.Column="2" Style="{StaticResource CalcButton}" Clicked="OnDigitClicked"/>
+                <Button Text="," Grid.Row="6" Grid.Column="3" Style="{StaticResource CalcButton}" Clicked="OnDecimalClicked"/>
+                <Button Text="=" Grid.Row="6" Grid.Column="4" Style="{StaticResource EqualButton}" Clicked="OnCalculateClicked"/>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
